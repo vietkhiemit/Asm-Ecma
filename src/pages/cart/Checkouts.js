@@ -52,7 +52,7 @@ const Checkouts = {
                     </div>
                     <div class="flex justify-between w-full items-center">
                         <p class="text-lg dark:text-gray-300 leading-4 text-gray-600">Product Name</p>
-                        <p class="text-lg dark:text-gray-300 font-semibold leading-4 text-gray-600">${item.name}</p>
+                        <p id="price-name" class="text-lg dark:text-gray-300 font-semibold leading-4 text-gray-600">${item.name}</p>
                     </div>
                     <div class="flex justify-between w-full items-center">
                         <p class="text-lg dark:text-gray-300 leading-4 text-gray-600">Unit Price</p>
@@ -84,6 +84,8 @@ const Checkouts = {
         const cart = JSON.parse(localStorage.getItem("cart"));
         const outOrder = document.querySelector("#order-output");
         const outPrice = document.querySelector("#price-output");
+        const outImage = document.querySelector("#img-oder");
+        const outName = document.querySelector("#price-name");
         let sum = 0;
         for (let i = 0; i < cart.length; i++) {
             const percent = cart[i].price_new * cart[i].quantity;
@@ -116,7 +118,9 @@ const Checkouts = {
                         email: document.querySelector("#emailCheckOut").value,
                         address: document.querySelector("#address").value,
                         phone: document.querySelector("#phone").value,
+                        orderImage: outImage.innerHTML.image,
                         oderprice: outOrder.innerHTML,
+                        orderName: outName.innerHTML,
                     }).then(async () => {
                         localStorage.removeItem("cart");
                         toastr.success("Order has been sent");

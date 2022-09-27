@@ -6,9 +6,9 @@ import "toastr/build/toastr.min.css";
 import { getAll, remove } from "../../../api/checkout";
 
 const AdminOrder = {
-    async render() {
-        const { data } = await getAll();
-        return /* html */`
+  async render() {
+    const { data } = await getAll();
+    return /* html */`
         <div class="min-h-full">
         ${AdminNav.render()}
         <header class="bg-white shadow">
@@ -104,6 +104,9 @@ const AdminOrder = {
                                         Phone
                                         </th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Product Name
+                                        </th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Total order
                                         </th>
                                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -130,6 +133,9 @@ const AdminOrder = {
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="text-sm text-gray-900">${checkout.phone}</div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="text-sm text-gray-900">${checkout.orderName}</div>
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap ">
                                                 <div class="text-sm text-gray-900">${checkout.oderprice}</div>
@@ -158,26 +164,26 @@ const AdminOrder = {
         </main>
       </div>
         `;
-    },
+  },
 
-    afterRender() {
-        // lấy toàn bộ button thông qua class
-        const buttons = document.querySelectorAll(".btn");
-        // lấy từng button
-        buttons.forEach((button) => {
-            button.addEventListener("click", (e) => {
-                e.preventDefault();
-                // lấy ID thông qua thuộc tính data-id ở button
-                const { id } = button.dataset;
-                const confirm = window.confirm("Are you sure you delete this account?");
-                if (confirm) {
-                    // call api
-                    remove(id).then(() => console.log("Successfully deleted!"));
-                }
-                toastr.success("Successfully deleted!");
-                reRender(AdminOrder, "#app");
-            });
-        });
-    },
+  afterRender() {
+    // lấy toàn bộ button thông qua class
+    const buttons = document.querySelectorAll(".btn");
+    // lấy từng button
+    buttons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        // lấy ID thông qua thuộc tính data-id ở button
+        const { id } = button.dataset;
+        const confirm = window.confirm("Are you sure you delete this account?");
+        if (confirm) {
+          // call api
+          remove(id).then(() => console.log("Successfully deleted!"));
+        }
+        toastr.success("Successfully deleted!");
+        reRender(AdminOrder, "#app");
+      });
+    });
+  },
 };
 export default AdminOrder;
