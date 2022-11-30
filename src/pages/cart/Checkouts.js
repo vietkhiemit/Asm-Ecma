@@ -62,6 +62,7 @@ const Checkouts = {
                         <p class="text-lg dark:text-gray-300 leading-4 text-gray-600">Quantity * Unit Price</p>
                         <p class="text-lg dark:text-gray-300 font-semibold leading-4 text-gray-600">${item.quantity} x ${new Intl.NumberFormat("de-DE", { style: "currency", currency: "USD" }).format(item.price_new)}</p>
                     </div>
+                    <div  id="order-total">total =${item.quantity}</div>
                     <div class="flex justify-between w-full items-center">
                         <p class="text-lg dark:text-gray-300 leading-4 text-gray-600">Total</p>
                         <p class="text-lg dark:text-gray-300 font-semibold leading-4 text-gray-600">${new Intl.NumberFormat("de-DE", { style: "currency", currency: "USD" }).format((item.price_new) * (item.quantity))}</p>
@@ -71,7 +72,7 @@ const Checkouts = {
                     <p class="text-xl dark:text-white font-semibold leading-4 text-gray-800">Estimated Total </p>
                     <span id="price-output" class="text-xl dark:text-white font-semibold leading-4 text-gray-800"></span>
                 </div>
-            </div>
+            </div>    
         </div>
     </div>
 
@@ -86,6 +87,7 @@ const Checkouts = {
         const outPrice = document.querySelector("#price-output");
         const outImage = document.querySelector("#img-oder");
         const outName = document.querySelector("#price-name");
+        const outTotal = document.querySelector("#order-total");
         let sum = 0;
         for (let i = 0; i < cart.length; i++) {
             const percent = cart[i].price_new * cart[i].quantity;
@@ -121,6 +123,7 @@ const Checkouts = {
                         orderImage: outImage.innerHTML.image,
                         oderprice: outOrder.innerHTML,
                         orderName: outName.innerHTML,
+                        total: item.quantity,
                     }).then(async () => {
                         localStorage.removeItem("cart");
                         toastr.success("Order has been sent");

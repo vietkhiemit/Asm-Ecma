@@ -130,10 +130,18 @@
       "email": "vietkhiem@gmail.com",
       "address": "Thái Bình",
       "phone": "0965225408",
-      "orderImage": "",
-      "oderprice": "22.360 $",
-      "orderName": "Special Wood Basket",
-      "id": 1
+      "oderprice": "3.600 $",
+      "orderName": "Nemo Enim Ipsam",
+      "id": 2
+    },
+    {
+      "name": "khiemnv",
+      "email": "vietkhiem@gmail.com",
+      "address": "Thái Bình",
+      "phone": "0965225408",
+      "oderprice": "4.500 $",
+      "orderName": "Dummy Yummi",
+      "id": 3
     },
     {
       "name": "khiemnv",
@@ -142,7 +150,16 @@
       "phone": "0965225408",
       "oderprice": "3.600 $",
       "orderName": "Nemo Enim Ipsam",
-      "id": 2
+      "id": 4
+    },
+    {
+      "name": "khiemnv",
+      "email": "vietkhiem@gmail.com",
+      "address": "Thái Bình",
+      "phone": "0965225408",
+      "oderprice": "11.180 $",
+      "orderName": "Special Wood Basket",
+      "id": 5
     }
   ],
   "blogs": [
@@ -163,16 +180,16 @@
   ],
   "users": [
     {
-      "email": "linhkinggg@gmai.com",
-      "password": "$2a$10$szCVsUOSKcY1EvUsLR00aOHxTCw2WwD0ZLvUOsVaahb4Ts7B3F5h2",
-      "username": "xuxiuxinxo16",
-      "id": 2
-    },
-    {
       "email": "vietkhiem@gmail.com",
       "password": "$2a$10$5kTuECVBcND3Mr5.OcNz4uNejhKW/Ssh5gCXw1gGengGMRzC8nc/y",
       "username": "khiemnv",
       "id": 1
+    },
+    {
+      "email": "vietkhiemdz@gmail.com",
+      "password": "$2a$10$9y1DdN/OLl5EyaYKHxRujOXdaUsi.HhrFAMlslSyVPGS1Ic.Zp6qC",
+      "username": "vietkhiemit",
+      "id": 2
     }
   ]
 }
